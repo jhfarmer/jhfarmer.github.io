@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scripts & Automation — James Farmer</title>
+  <title>Scripts & Automation - James Farmer</title>
   <meta name="description" content="Scripts and automation snippets by James Farmer: PowerShell, Python, Intune, AD, VMware." />
   <meta name="theme-color" content="#0f172a" />
   <style>
@@ -68,7 +68,7 @@
           <p class="muted">Cloud + infra operations with safety rails and logging.</p>
 
           <details class="exp">
-            <summary><strong>Intune device cleanup & compliance helpers</strong><span class="muted"> — find stale devices (90+ days) and retire them</span></summary>
+            <summary><strong>Intune device cleanup & compliance helpers</strong><span class="muted"> - find stale devices (90+ days) and retire them</span></summary>
             <pre><code class="language-powershell"># Requires: Microsoft.Graph modules
 # Install-Module Microsoft.Graph -Scope CurrentUser
 # Connect with least-privilege scopes
@@ -91,7 +91,7 @@ foreach($d in $stale){
           </details>
 
           <details class="exp">
-            <summary><strong>Zero‑touch offboarding (Batch CSV + transcripts)</strong><span class="muted"> — Entra ID + AD + EXO with idempotency</span></summary>
+            <summary><strong>Zero‑touch offboarding (Batch CSV + transcripts)</strong><span class="muted"> - Entra ID + AD + EXO with idempotency</span></summary>
             <pre><code class="language-powershell"># PowerShell 7+ recommended
 # Modules: Microsoft.Graph, ExchangeOnlineManagement, ActiveDirectory
 # CSV columns (example): UPN, DisabledOU, KeepGroups (semicolon-delimited)
@@ -160,7 +160,7 @@ Write-Log "All rows processed. Log: $logPath"</code></pre>
           </details>
 
           <details class="exp">
-            <summary><strong>vSphere golden image deploy (parallel + IPAM)</strong><span class="muted"> — CSV or count, tags, Tools wait, idempotent</span></summary>
+            <summary><strong>vSphere golden image deploy (parallel + IPAM)</strong><span class="muted"> - CSV or count, tags, Tools wait, idempotent</span></summary>
             <pre><code class="language-powershell"># PowerShell 7+ recommended (ForEach-Object -Parallel)
 # Requires: VMware.PowerCLI 13+
 
@@ -235,7 +235,7 @@ Write-Host "Deployment finished." -ForegroundColor Green</code></pre>
           </details>
 
           <details class="exp">
-            <summary><strong>Autopilot Health & Readiness (Graph)</strong><span class="muted"> — enrollment failures, profile drift, CSV/HTML report</span></summary>
+            <summary><strong>Autopilot Health & Readiness (Graph)</strong><span class="muted"> - enrollment failures, profile drift, CSV/HTML report</span></summary>
             <pre><code class="language-powershell"># Requires: Microsoft.Graph.Beta (for Intune Autopilot endpoints)
 # Install-Module Microsoft.Graph.Beta -Scope CurrentUser
 Import-Module Microsoft.Graph.Beta.DeviceManagement
@@ -262,7 +262,7 @@ Write-Host "Saved autopilot-readiness.csv" -ForegroundColor Green</code></pre>
           </details>
 
           <details class="exp">
-            <summary><strong>Intune Compliance Drift Remediator</strong><span class="muted"> — targets BitLocker/TPM/AV failures and queues remediation</span></summary>
+            <summary><strong>Intune Compliance Drift Remediator</strong><span class="muted"> - targets BitLocker/TPM/AV failures and queues remediation</span></summary>
             <pre><code class="language-powershell"># Requires: Microsoft.Graph (device compliance & device health scripts)
 Connect-MgGraph -Scopes "DeviceManagementConfiguration.ReadWrite.All, DeviceManagementManagedDevices.Read.All"
 
@@ -280,7 +280,7 @@ $scriptId = "00000000-0000-0000-0000-000000000000"
           </details>
 
           <details class="exp">
-            <summary><strong>Conditional Access “What‑If” tester</strong><span class="muted"> — simulate sign‑ins and summarize effective policies</span></summary>
+            <summary><strong>Conditional Access “What‑If” tester</strong><span class="muted"> - simulate sign‑ins and summarize effective policies</span></summary>
             <pre><code class="language-powershell"># Concept: correlate sign-in logs + policy set for quick "would this require MFA?" checks
 Connect-MgGraph -Scopes "Policy.Read.All, AuditLog.Read.All, Directory.Read.All"
 
@@ -297,7 +297,7 @@ $results | Export-Csv -NoTypeInformation -Path ca-whatif.csv
           </details>
 
           <details class="exp">
-            <summary><strong>EXO Mailbox lifecycle toolkit</strong><span class="muted"> — convert to Shared, apply hold, assign retention</span></summary>
+            <summary><strong>EXO Mailbox lifecycle toolkit</strong><span class="muted"> - convert to Shared, apply hold, assign retention</span></summary>
             <pre><code class="language-powershell">Import-Module ExchangeOnlineManagement
 Connect-ExchangeOnline -ShowBanner:$false
 
@@ -310,7 +310,7 @@ Write-Host "Mailbox converted and retention applied." -ForegroundColor Green
           </details>
 
           <details class="exp">
-            <summary><strong>SCCM → Intune app readiness report</strong><span class="muted"> — detects install types, flags detection issues, recommends order</span></summary>
+            <summary><strong>SCCM → Intune app readiness report</strong><span class="muted"> - detects install types, flags detection issues, recommends order</span></summary>
             <pre><code class="language-powershell"># Input: sccm-apps.csv with Name, InstallCmd, DetectRuleType, ExitCodes
 $apps = Import-Csv .\sccm-apps.csv
 $report = foreach($a in $apps){
@@ -324,7 +324,7 @@ $report | Sort SuggestedOrder, Name | Export-Csv -NoTypeInformation intune-app-r
           </details>
 
           <details class="exp">
-            <summary><strong>Azure RBAC baseliner (Bicep/Terraform)</strong><span class="muted"> — least‑privilege role assignments across RGs</span></summary>
+            <summary><strong>Azure RBAC baseliner (Bicep/Terraform)</strong><span class="muted"> - least‑privilege role assignments across RGs</span></summary>
             <pre><code class="language-bicep">targetScope = 'subscription'
 param rgNames array = [ 'rg-prod-app', 'rg-prod-data' ]
 param principalId string // Entra group objectId e.g. Ops Team
@@ -360,7 +360,7 @@ resource "azurerm_role_assignment" "ops_contrib" {
           <p class="muted">Utilities for extraction, scraping with safety, and quick reports.</p>
 
           <details class="exp">
-            <summary><strong>HTML → CSV extractor</strong><span class="muted"> — parse tables to DataFrame/CSV</span></summary>
+            <summary><strong>HTML → CSV extractor</strong><span class="muted"> - parse tables to DataFrame/CSV</span></summary>
             <pre><code class="language-python">from bs4 import BeautifulSoup
 import pandas as pd
 
@@ -387,7 +387,7 @@ print("Saved output.csv")
           </details>
 
           <details class="exp">
-            <summary><strong>Polite scraper w/ backoff</strong><span class="muted"> — respects robots.txt and rate limits</span></summary>
+            <summary><strong>Polite scraper w/ backoff</strong><span class="muted"> - respects robots.txt and rate limits</span></summary>
             <pre><code class="language-python">import time, random, requests
 from urllib.parse import urljoin
 from urllib import robotparser
@@ -423,7 +423,7 @@ for u in urls:
           </details>
 
           <details class="exp">
-            <summary><strong>Docx report generator</strong><span class="muted"> — quick status report to .docx</span></summary>
+            <summary><strong>Docx report generator</strong><span class="muted"> - quick status report to .docx</span></summary>
             <pre><code class="language-python">from docx import Document
 from datetime import datetime
 
