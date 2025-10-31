@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Projects — James Farmer</title>
+  <meta name="description" content="Personal projects by James Farmer." />
+  
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#0f172a; --muted:#94a3b8; --ink:#e5e7eb;
+      --brand:#7c3aed; --brand-2:#22d3ee; --ring:#7c3aed60; --chip:#11182780;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;color:var(--ink);
+      background: radial-gradient(1200px 600px at 90% -10%, #1e293b 0%, transparent 60%),
+                  radial-gradient(800px 400px at -10% 10%, #0b3b52 0%, transparent 55%),
+                  #0b1020;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:auto;padding:2rem}
+    header.sticky{position:sticky;top:0;z-index:30;backdrop-filter:saturate(160%) blur(8px);
+      background:color-mix(in oklab, var(--panel) 90%, transparent);
+      border-bottom:1px solid color-mix(in oklab,var(--muted), transparent 70%);}
+    .nav{display:flex;align-items:center;gap:1rem;justify-content:center;padding:.75rem 1rem}
+    .top-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.2rem}
+    .nav a.logo{display:flex;align-items:center;gap:.8rem;font-weight:700;letter-spacing:.3px;font-size:clamp(1.1rem,2.2vw,1.5rem)}
+    .badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:999px;background:var(--chip);
+      border:1px solid color-mix(in oklab,var(--muted), transparent 70%)}
+    .section{margin-top:2rem}
+    .panel{background:color-mix(in oklab,var(--panel), black 6%);border:1px solid color-mix(in oklab,var(--muted), transparent 70%);border-radius:20px;padding:1.1rem}
+    h1{font-size:clamp(1.6rem, 4vw, 2.3rem);line-height:1.15;margin:.2rem 0 .6rem 0}
+    h2{font-size:1.2rem;margin:0 0 .6rem}
+    .muted{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border-radius:12px;font-weight:600;border:1px solid transparent;background:var(--brand);color:#fff}
+    .btn.ghost{background:transparent;border-color:color-mix(in oklab,var(--brand),white 75%)}
+    .btn:hover{box-shadow:0 0 0 6px var(--ring)}
+    .grid{display:grid;gap:1rem}
+    @media(min-width:750px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .item{background:color-mix(in oklab,var(--panel), black 6%);border:1px solid color-mix(in oklab,var(--muted), transparent 70%);border-radius:18px;padding:1rem}
+    details{background:color-mix(in oklab,var(--panel), black 6%);border:1px solid color-mix(in oklab,var(--muted), transparent 70%);border-radius:14px;padding:.8rem}
+    details+details{margin-top:.8rem}
+    summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:600}
+    pre{overflow:auto;background:#0b1226;border:1px solid #1f2b46;padding:.8rem;border-radius:12px}
+    code{font-family:ui-monospace,SFMono-Regular,Consolas,Monaco,Menlo,monospace;font-size:.9rem}
+    .kicker{color:var(--brand-2);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem}
+    .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.7rem}
+    footer{margin:3rem 0 2rem 0;color:var(--muted);text-align:center}
+  </style>
+
+</head>
+<body>
+  <header class="sticky">
+    <nav class="nav container">
+      <div class="top-cta">
+        <a href="index.html#portfolio" class="logo" aria-label="Back to portfolio">
+          <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2"/><path d="M12 7v10"/><path d="M7 11h10"/>
+              <path d="M4 16c1.8 3 4.9 5 8 5s6.2-2 8-5"/>
+              <path d="M8 16l-3 2.5M16 16l3 2.5"/>
+            </g>
+          </svg>
+          <span>James&nbsp;Farmer</span>
+        </a>
+        <span class="badge">Personal Projects</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section panel">
+      <span class="kicker">Sub‑page</span>
+      <h1>Personal Projects</h1>
+      <p class="muted">This space is for passion projects I enjoy. I’ll update this with write‑ups, screenshots, and small demos.</p>
+    </section>
+
+    <section class="section grid cols-2">
+      <div class="item">
+        <h2>Coming soon</h2>
+        <p class="muted">I’m curating a few favorites to showcase here.</p>
+        <div class="cta">
+          <a class="btn" href="index.html#portfolio">← Back to Portfolio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p class="muted">© <span id="y"></span> James Farmer</p>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
